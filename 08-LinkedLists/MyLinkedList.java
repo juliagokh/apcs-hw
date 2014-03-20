@@ -1,5 +1,5 @@
 public class MyLinkedList{
-    private Node head, temp;
+    private Node head, temp, temp2;
 
     public MyLinkedList(){
 	head = null;
@@ -64,7 +64,18 @@ public class MyLinkedList{
     }
     
     public void add(int x, String s){
-	//adds at a location
+	//add s at a location x
+	int pos = 0;
+	temp = head;
+	temp2 = temp.getNext();
+	while (pos < x-1){
+	    temp = temp.getNext();
+	    temp2 = temp2.getNext();
+	    pos++;
+	}
+	Node nuevo = new Node(s);
+	nuevo.setNext(temp2);
+	temp.setNext(nuevo);
     }
 
     public String set(int x, String s){
@@ -80,11 +91,26 @@ public class MyLinkedList{
 		temp.setData(s);
 		return res;
 	    }else{
+		temp = temp.getNext();
 		pos++;
 	    }
 	}
 	return "";
     }
 
-    
+    public String remove (int x){
+	//remove and return the String at x
+	int pos = 0;
+	temp = head;
+	temp2 = temp.getNext();
+	while (pos < x - 1){
+	    temp = temp.getNext();
+	    temp2 = temp2.getNext();
+	    pos++;
+	}
+	String res = temp2.getData();
+	temp.setNext(temp2.getNext());
+	return res;
+    }
+	
 }

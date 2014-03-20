@@ -17,7 +17,9 @@ public class LLDriver{
 	System.out.println(L.toString());
 	System.out.println(L.set(2, "Julia"));
 	System.out.println(L.toString());
-			   
-			   
+	L.add(2, "Hailey");
+	System.out.println(L.toString());
+	System.out.println(L.remove(3));
+	System.out.println(L.toString());		       	     			   
     }
 }
