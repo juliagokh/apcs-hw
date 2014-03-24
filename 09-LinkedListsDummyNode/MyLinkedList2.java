@@ -1,15 +1,23 @@
 public class MyLinkedList2{
-    private Node head, temp, temp2;
+    private Node head, tail, temp, temp2;
 
     public MyLinkedList2(){
 	head = new Node("dumdum");
+	tail = head;
     }
-
+    /*
     public void add(String d){
 	Node temp = new Node(d);
 	//Works no matter what (even if the list is empty)
 	temp.setNext(head); //You have to do this first
 	head = temp; // You have to do this second
+    }
+    */
+
+    public void add (String d){
+	Node temp = new Node(d);
+	tail.setNext(temp);
+	tail = temp;
     }
     
     public String toString(){
@@ -66,7 +74,7 @@ public class MyLinkedList2{
     public void add(int x, String s){
 	//add s at a location x
 	int pos = 0;
-	temp = head.getNext();
+	temp = head;
 	temp2 = temp.getNext();
 	while (pos < x-1){
 	    temp = temp.getNext();
@@ -80,8 +88,7 @@ public class MyLinkedList2{
 
     public String set(int x, String s){
 	//sets location x to String s
-	//it's changing something but not the right thing
-	//Works (as in doesn't crash) but doesn't work correctly
+	//Works
 	temp = head.getNext();
 	int pos = 0;
 	String res = "";
