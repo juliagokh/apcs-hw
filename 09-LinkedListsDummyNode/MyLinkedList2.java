@@ -2,19 +2,19 @@ public class MyLinkedList2{
     private Node head, tail, temp, temp2;
 
     public MyLinkedList2(){
-	head = new Node("dumdum");
+	head = new Node("i am a dummy");
 	tail = head;
     }
-    /*
-    public void add(String d){
+    
+    public void addAtStart(String d){
 	Node temp = new Node(d);
 	//Works no matter what (even if the list is empty)
-	temp.setNext(head); //You have to do this first
-	head = temp; // You have to do this second
+	temp.setNext(head.getNext()); //You have to do this first
+	head.setNext(temp); // You have to do this second
     }
-    */
 
-    public void add (String d){
+
+    public void addAtEnd (String d){
 	Node temp = new Node(d);
 	tail.setNext(temp);
 	tail = temp;
@@ -25,7 +25,12 @@ public class MyLinkedList2{
 	String res = "{";
 	temp = head.getNext();
 	while (temp != null){
-	    res += temp.getData() + ", ";
+	    if (temp.getNext() != null){
+		res += temp.getData() + ", ";
+	    }
+	    else{
+		res += temp.getData();
+	    }
 	    temp = temp.getNext();
 	}
 	res += "}";

@@ -2,13 +2,13 @@ public class LLDriver{
     public static void main(String[] args){
 	MyLinkedList L = new MyLinkedList();
 	System.out.println(L);
-	L.add("Sully");
+	L.AddAtEnd("Sully");
 	System.out.println(L);
-	L.add("Mike");
+	L.AddAtStart("Mike");
 	System.out.println(L);
-	L.add("Randall");
+	L.AddAtEnd("Randall");
 	System.out.println(L);
-	L.add("Boo");
+	L.AddAtStart("Boo");
 	System.out.println(L);
 	System.out.println(L.get(2));
 	System.out.println(L.find("Mike"));
