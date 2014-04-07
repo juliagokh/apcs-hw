@@ -1,6 +1,10 @@
 public class MyStack {
     private Node top; 
     private int numElts;
+    
+    //I'm having trouble understanding what the purpose of the assignment
+    // is and how to do it, so I will be looking at the work of other
+    //students in the class to try and get an idea.
 
     public MyStack(){
 	top = null;
