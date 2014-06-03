@@ -1,0 +1,55 @@
+import java.util.*;
+import java.io.*;
+
+public class Question1{
+    
+    String name;
+    File file;
+    Scanner in;
+    String res = "";
+
+    public Question1(String name){
+	this.name = name;
+	try{
+	    file = new File(name);
+	    in = new Scanner(file);
+	}catch (Exception e){
+	    System.out.println("File not found");
+	}
+    }
+
+    public void game() {
+	if (in.hasNext()){
+	    game(in.nextInt());
+	}
+    }
+
+    public void game(int x){
+	int ans = 1;
+	while (x / 10 > 0){
+	    ans = ans * (x % 10);
+	    x = x / 10;
+	}
+	res += " " + ans; 
+	game(ans);
+    }
+
+    public String getResult(){
+	return res;
+    }
+	    
+
+    public static void main(String[] args){
+	PrintWriter out = null;
+	try{
+	    out = new PrintWriter(new BufferedWriter(new FileWriter("DIGIT.OUT")));
+	} catch (Exception e){};
+	
+	Question1 question = new Question1("DIGIT.IN");
+	question.game();
+	out.print(question.getResult());
+	
+
+    }
+
+}

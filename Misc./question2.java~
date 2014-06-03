@@ -1,0 +1,43 @@
+import java.util.*;
+import java.io.*;
+
+public class Question2{
+    
+    String name;
+    File file;
+    Scanner in;
+    int resultTime = 0;
+
+    public Question2(String name){
+	this.name = name;
+	try{
+	    file = new File(name);
+	    in = new Scanner(file);
+	}catch (Exception e){
+	    System.out.println("File not found");
+	}
+    }
+
+    public void chore(){
+	if (in.nextInt() == 0){
+	    resultTime += in.nextInt();
+	}
+    }
+
+    public int getTime(){
+	return resultTime;
+    }
+		
+
+    public static void main(String[] args){
+	PrintWriter out = null;
+	try{
+	    out = new PrintWriter(new BufferedWriter(new FileWriter("CHORE.OUT")));
+	} catch (Exception e){};
+	
+	Question2 question = new Question2("CHORE.IN");
+	question.chore();
+	out.print(question.getTime());
+
+    }
+}
